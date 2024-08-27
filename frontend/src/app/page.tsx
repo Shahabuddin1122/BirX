@@ -52,6 +52,25 @@ export default function Home() {
               </div>
               <Button text={"View All"} option={false}/>
           </div>
+          <div className={"mx-5 bg-gray-100 rounded-xl my-10 py-5"}>
+              <h1 className={"text-4xl font-extrabold text-center py-5"}>BROWSE BY <br/>DRESS STYLE</h1>
+              <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4"}>
+                  <Image src={"/casual.png"} alt={"casual"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Casual</h2>
+              </div>
+              <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4"}>
+                  <Image src={"/formal.png"} alt={"formal"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Formal</h2>
+              </div>
+              <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4"}>
+                  <Image src={"/party.png"} alt={"party"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Party</h2>
+              </div>
+              <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4"}>
+                  <Image src={"/gym.png"} alt={"gym"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Gym</h2>
+              </div>
+          </div>
           <Footer/>
 
       </>
