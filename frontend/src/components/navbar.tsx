@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={"w-full border border-blue-300 px-5 py-5 flex justify-between items-center"}>
+            <div className={"w-full px-5 py-5 flex justify-between items-center"}>
                 <div className={"flex justify-center items-center gap-4"}>
                     <Image src={"/bars.svg"} alt={"bar"} width={24} height={24} onClick={toggleSidebar} className={"cursor-pointer block sm:hidden"}/>
                     <Image src={"/logo.png"} alt={"logo"} width={50} height={50}/>
