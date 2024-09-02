@@ -20,6 +20,15 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+.scrollbar-hide {
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -1,8 +1,13 @@
 import Image from "next/image";
+import React from "react";
 
-const ProductCard = () => {
+interface ProductCardProps {
+    onClick?: () => void;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ onClick }) => {
     return (
-        <div className={"w-[160px] flex-shrink-0 border"}>
+        <div onClick={onClick} className={"flex-1 min-w-[160px] max-w-[300px] border rounded-xl shadow-xl mb-5"}>
             <div className={"w-full h-[150px] bg-slate-100 rounded-lg relative"}>
                 <Image src={"/shirt.png"} alt={"Shirt"} fill objectFit={"cover"} className={"rounded-lg"} />
             </div>
