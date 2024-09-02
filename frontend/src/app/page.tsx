@@ -1,10 +1,13 @@
+"use client"
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import ProductCard from "@/components/productCard";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
+import {useRouter} from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
       <>
           <Navbar/>
@@ -38,19 +41,19 @@ export default function Home() {
           </div>
           <div className={"px-5"}>
               <h1 className={"text-2xl font-bold text-center py-5"}>NEW ARRIVALS</h1>
-              <div className={"flex flex-wrap gap-x-6"}>
-                  <ProductCard/>
-                  <ProductCard/>
+              <div className={"flex justify-between gap-x-6 pb-5"}>
+                  <ProductCard onClick={()=> router.push('/product/1')}/>
+                  <ProductCard onClick={()=> router.push('/product/1')}/>
               </div>
-              <Button text={"View All"} option={false}/>
+              <Button text={"View All"} option={false} onclick={()=> router.push('/products')}/>
           </div>
           <div className={"px-5"}>
               <h1 className={"text-2xl font-bold text-center py-5"}>TOP SELLING</h1>
-              <div className={"flex flex-wrap gap-x-6"}>
-                  <ProductCard/>
-                  <ProductCard/>
+              <div className={"flex justify-between gap-x-6 pb-5"}>
+                  <ProductCard onClick={()=> router.push('/product/1')}/>
+                  <ProductCard onClick={()=> router.push('/product/1')}/>
               </div>
-              <Button text={"View All"} option={false}/>
+              <Button text={"View All"} option={false} onclick={()=> router.push('/products')}/>
           </div>
           <div className={"mx-5 bg-gray-100 rounded-xl my-10 py-5"}>
               <h1 className={"text-4xl font-extrabold text-center py-5"}>BROWSE BY <br/>DRESS STYLE</h1>

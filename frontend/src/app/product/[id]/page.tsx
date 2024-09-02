@@ -59,7 +59,7 @@ const page = () => {
                 </div>
                 <div className={""}>
                     <h1 className={"text-4xl font-extrabold text-center py-10"}>YOU MIGHT <br/>ALSO LIKE</h1>
-                    <div className={"relative overflow-x-auto"}>
+                    <div className={"relative overflow-x-auto scrollbar-hide"}>
                         <div className={"flex gap-x-6 whitespace-nowrap"}>
                             <ProductCard/>
                             <ProductCard/>

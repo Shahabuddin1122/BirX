@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+const config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,10 +9,34 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+            "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      scrollbar: {
+        hide: {
+          'scrollbar-width': 'none',  /* Firefox */
+          '-ms-overflow-style': 'none', /* Internet Explorer and Edge */
+          '&::-webkit-scrollbar': {
+            display: 'none', /* Safari and Chrome */
+          },
+        },
       },
     },
+    plugins: [
+      function ({addUtilities}) {
+        addUtilities(
+            {
+              '.scrollbar-hide': {
+                'scrollbar-width': 'none',  /* Firefox */
+                '-ms-overflow-style': 'none', /* Internet Explorer and Edge */
+                '&::-webkit-scrollbar': {
+                  display: 'none', /* Safari and Chrome */
+                },
+              },
+            },
+            ['responsive', 'hover']
+        );
+      },
+    ],
   },
-  plugins: [],
 };
 export default config;

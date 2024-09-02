@@ -1,9 +1,12 @@
+"use client"
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import ProductCard from "@/components/productCard";
+import {useRouter} from "next/navigation";
 
 const Page = () => {
+    const router = useRouter();
     return (
         <>
             <Navbar/>
@@ -18,13 +21,13 @@ const Page = () => {
                         <Image src={"/filter.svg"} alt={"filter"} width={24} height={24}/>
                     </div>
                 </div>
-                <div className={"py-4 flex flex-wrap gap-4 border-b border-slate-400"}>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
+                <div className={"py-4 flex flex-wrap gap-4 border-b border-slate-400"} style={{ gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))"}}>
+                    <ProductCard onClick={()=> router.push('/product/1')}/>
+                    <ProductCard onClick={()=> router.push('/product/1')}/>
+                    <ProductCard onClick={()=> router.push('/product/1')}/>
+                    <ProductCard onClick={()=> router.push('/product/1')}/>
+                    <ProductCard onClick={()=> router.push('/product/1')}/>
+                    <ProductCard onClick={()=> router.push('/product/1')}/>
                 </div>
                 <div className={"py-4 flex justify-between items-center"}>
                     <div className={"px-4 py-2 border flex gap-x-4 items-center"}>
