@@ -11,32 +11,8 @@ const config = {
         "gradient-conic":
             "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      scrollbar: {
-        hide: {
-          'scrollbar-width': 'none',  /* Firefox */
-          '-ms-overflow-style': 'none', /* Internet Explorer and Edge */
-          '&::-webkit-scrollbar': {
-            display: 'none', /* Safari and Chrome */
-          },
-        },
-      },
     },
-    plugins: [
-      function ({addUtilities}) {
-        addUtilities(
-            {
-              '.scrollbar-hide': {
-                'scrollbar-width': 'none',  /* Firefox */
-                '-ms-overflow-style': 'none', /* Internet Explorer and Edge */
-                '&::-webkit-scrollbar': {
-                  display: 'none', /* Safari and Chrome */
-                },
-              },
-            },
-            ['responsive', 'hover']
-        );
-      },
-    ],
+    plugins: [],
   },
 };
 export default config;
