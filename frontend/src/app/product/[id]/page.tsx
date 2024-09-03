@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Button from "@/components/Button";
 import ProductCard from "@/components/productCard";
+import Quantity from "@/components/quantity";
 
 const page = () => {
     return (
@@ -50,11 +51,7 @@ const page = () => {
                     </div>
                 </div>
                 <div className={"pt-10 border-t-2 flex gap-x-4"}>
-                    <div className={"py-3 px-4 rounded-full flex gap-x-4 bg-slate-100 flex-shrink-0"}>
-                        <Image src={"/minus.svg"} alt={"decrement"} width={15} height={15}/>
-                        <p className={"text-xl font-bold"}>1</p>
-                        <Image src={"/plus.svg"} alt={"increment"} width={15} height={15}/>
-                    </div>
+                    <Quantity/>
                     <Button text={"Add to Cart"} option={true} />
                 </div>
                 <div className={""}>
