@@ -4,16 +4,16 @@ interface RangeProps {
     min: number,
     max: number
 }
-const PriceRangeSlider:React.FC<RangeProps> = ({min, max,ChangeHandle}) => {
+const PriceRangeSlider:React.FC<RangeProps> = ({min, max}) => {
     const [minPrice, setMinPrice] = useState(max);
     const [maxPrice, setMaxPrice] = useState(max);
-    const handleMinChange = (e) => {
+    const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMinPrice(parseInt(e.target.value));
         console.log(e.target.value);
         // ChangeHandle(e)
     };
 
-    const handleMaxChange = (e) => {
+    const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMaxPrice(parseInt(e.target.value));
         console.log(e.target.value)
         // ChangeHandle(e)
