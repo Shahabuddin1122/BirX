@@ -15,7 +15,7 @@ export default function Home() {
               <h1 className={"text-4xl font-extrabold"}>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
               <p className={"text-xl py-3"}>Browse through our diverse range of meticulously crafted garments, designed
                   to bring out your individuality and cater to your sense of style.</p>
-              <Button text={"Shop now"} option={true}/>
+              <Button text={"Shop now"} option={true} onclick={()=> router.push('/products')}/>
               <div className={"flex justify-around py-3"}>
                   <div>
                       <h1 className={"text-lg font-bold"}>1000+</h1>
@@ -42,16 +42,16 @@ export default function Home() {
           <div className={"px-5"}>
               <h1 className={"text-2xl font-bold text-center py-5"}>NEW ARRIVALS</h1>
               <div className={"flex justify-between gap-x-6 pb-5"}>
-                  <ProductCard onClick={()=> router.push('/product/1')}/>
-                  <ProductCard onClick={()=> router.push('/product/1')}/>
+                  <ProductCard image={"/shirt.png"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
+                  <ProductCard image={"/shirt.png"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
               </div>
               <Button text={"View All"} option={false} onclick={()=> router.push('/products')}/>
           </div>
           <div className={"px-5"}>
               <h1 className={"text-2xl font-bold text-center py-5"}>TOP SELLING</h1>
               <div className={"flex justify-between gap-x-6 pb-5"}>
-                  <ProductCard onClick={()=> router.push('/product/1')}/>
-                  <ProductCard onClick={()=> router.push('/product/1')}/>
+                  <ProductCard image={"/shirt.png"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
+                  <ProductCard image={"/shirt.png"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
               </div>
               <Button text={"View All"} option={false} onclick={()=> router.push('/products')}/>
           </div>
