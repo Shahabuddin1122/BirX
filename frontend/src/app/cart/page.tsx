@@ -1,11 +1,14 @@
+"use client"
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Quantity from "@/components/quantity";
 import VerticalProductCard from "@/components/verticalProductCard";
 import Button from "@/components/Button";
+import {useRouter} from "next/navigation";
 
-const page = () => {
+const Page = () => {
+    const router = useRouter()
     return (
         <>
             <Navbar/>
@@ -36,11 +39,11 @@ const page = () => {
                         <p className={"text-lg"}>Total</p>
                         <p className={"font-bold text-xl"}>$467</p>
                     </div>
-                    <Button text={"Go to Checkout"} option={true} />
+                    <Button text={"Go to Checkout"} option={true} onclick={()=> router.push('/checkout')}/>
                 </div>
             </div>
             <Footer/>
         </>
     );
 }
-export default page;
+export default Page;
