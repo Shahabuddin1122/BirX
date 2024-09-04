@@ -1,14 +1,19 @@
 import Image from "next/image";
 import Button from "@/components/Button";
+import React from "react";
 
-const Filter = ({isModelOpen}:{isModelOpen:(boolean)=>void}) => {
+interface FilterProps {
+    isModelOpen: (open: boolean) => void;
+}
+
+const Filter: React.FC<FilterProps> = ({ isModelOpen }) => {
     return (
         <>
             <div className={"fixed inset-0 bg-slate-100 bg-opacity-50 z-20 overflow-hidden"}>
                 <div className={"w-full max-h-[70vh] px-5 py-4 pb-10 bg-white shadow-2xl absolute rounded-t-2xl z-30 top-72 overflow-y-auto"}>
                     <div className={"flex justify-between text-xl py-3"}>
                         <h1 className={"font-extrabold"}>Filter</h1>
-                        <p className={"cursor-pointer"} onClick={isModelOpen}>✕</p>
+                        <p className={"cursor-pointer"} onClick={()=> isModelOpen(false)}>✕</p>
                     </div>
                     <div className={"w-full bg-slate-200 h-0.5"}></div>
                     <div className={"flex flex-col gap-y-4 py-4"}>

@@ -5,9 +5,9 @@ import Image from "next/image";
 import ProductCard from "@/components/productCard";
 import {useRouter} from "next/navigation";
 import Filter from "@/components/filter";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
-const Page = () => {
+const Page: React.FC = () => {
     const [isFilterOpen,setIsFilterOpen] = useState<boolean>(false);
     const router = useRouter();
 
@@ -26,7 +26,7 @@ const Page = () => {
     return (
         <>
             <Navbar/>
-            {isFilterOpen && <Filter isModelOpen={()=> setIsFilterOpen(false)}/>}
+            {isFilterOpen && <Filter isModelOpen={setIsFilterOpen}/>}
             <div className={"px-5"}>
                 <h1 className={"text-slate-400"}>Home &gt; <span className={"text-black"}>Casual</span></h1>
                 <div className={"py-4 flex justify-between"}>
