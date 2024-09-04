@@ -51,7 +51,7 @@ export default function Home() {
               <h1 className={"text-2xl font-bold text-center py-5"}>TOP SELLING</h1>
               <div className={"flex justify-between gap-x-6 pb-5"}>
                   <ProductCard image={"/shirt.png"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
-                  <ProductCard image={"/shirt.png"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
+                  <ProductCard image={"/pant.jpg"} name={'T-SHIRT WITH TAPE DETAILS'} price={'1020'} onClick={()=> router.push('/product/1')}/>
               </div>
               <Button text={"View All"} option={false} onclick={()=> router.push('/products')}/>
           </div>
