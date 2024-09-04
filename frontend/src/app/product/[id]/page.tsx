@@ -56,7 +56,7 @@ const Page = () => {
                 </div>
                 <div className={"pt-10 border-t-2 flex gap-x-4"}>
                     <Quantity/>
-                    <Button text={"Add to Cart"} option={true} />
+                    <Button text={"Add to Cart"} option={true} onclick={()=> router.push('/cart')} />
                 </div>
                 <div className={""}>
                     <h1 className={"text-4xl font-extrabold text-center py-10"}>YOU MIGHT <br/>ALSO LIKE</h1>
