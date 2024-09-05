@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
 return (
     <>
-        <div className={"px-5"}>
+        <div className={"sm:px-5 md:mx-24"}>
             <Image src={"/logo.png"} alt={"logo"} width={50} height={50}/>
             <p>We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
             <div className={"py-3"}>
