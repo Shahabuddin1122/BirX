@@ -61,7 +61,7 @@ export default function Home() {
                   </div>
               </div>
 
-              <Button text="View All" option={false} onClick={() => router.push('/products')}/>
+              <Button text="View All" option={false} onclick={() => router.push('/products')}/>
           </div>
 
 
