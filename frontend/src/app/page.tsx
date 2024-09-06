@@ -12,12 +12,12 @@ export default function Home() {
       <>
           <Navbar/>
           <div className={"pt-10 bg-stone-100 md:mx-24 md:flex"}>
-              <div className={"sm:w-full md:w-1/2 px-5 md:flex md:flex-col md:justify-center lg:gap-y-4"}>
+              <div className={"md:w-1/2 px-5 md:flex md:flex-col md:justify-center lg:gap-y-4"}>
                   <h1 className={"text-4xl font-extrabold"}>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
                   <p className={"text-xl py-3"}>Browse through our diverse range of meticulously crafted garments,
                       designed
                       to bring out your individuality and cater to your sense of style.</p>
-                  <Button text={"Shop now"} option={true} onclick={() => router.push('/products')}/>
+                  <Button text="Shop now" option={true} onclick={() => router.push('/products')}/>
                   <div className={"flex justify-around py-3"}>
                       <div>
                           <h1 className={"text-lg font-bold"}>1000+</h1>
@@ -61,7 +61,9 @@ export default function Home() {
                   </div>
               </div>
 
-              <Button text="View All" option={false} onclick={() => router.push('/products')}/>
+              <div className={'w-full flex items-center justify-center'}>
+                  <Button text="View All" option={false} onclick={() => router.push('/products')}/>
+              </div>
           </div>
 
 
@@ -81,7 +83,9 @@ export default function Home() {
                                    onClick={() => router.push('/product/1')}/>
                   </div>
               </div>
-              <Button text={"View All"} option={false} onclick={() => router.push('/products')}/>
+              <div className={'flex justify-center items-center w-full'}>
+                  <Button text={"View All"} option={false} onclick={() => router.push('/products')}/>
+              </div>
           </div>
           <div className={"sm:mx-5  md:mx-24 bg-gray-100 rounded-xl my-10 py-5"}>
               <h1 className={"text-4xl font-extrabold text-center py-5 lg:text-4xl"}>BROWSE BY <br/>DRESS STYLE</h1>

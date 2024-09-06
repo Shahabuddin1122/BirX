@@ -22,15 +22,15 @@ const Page = () => {
                                    objectFit={"cover"} className={"rounded-lg"}/>
                         </div>
                         <div className={"flex justify-between h-[100px] gap-x-4"}>
-                            <div className={"w-1/3 h-full relative rounded-lg border-black border-2"}>
+                            <div className={"w-1/3 h-auto relative rounded-lg border-black border-2"}>
                                 <Image src={"/shirt.png"} alt={"Shirt"} fill objectFit={"cover"}
                                        className={"rounded-lg"}/>
                             </div>
-                            <div className={"w-1/3 h-full relative rounded-lg"}>
+                            <div className={"w-1/3 h-auto relative rounded-lg"}>
                                 <Image src={"/shirt.png"} alt={"Shirt"} fill objectFit={"cover"}
                                        className={"rounded-lg"}/>
                             </div>
-                            <div className={"w-1/3 h-full relative rounded-lg"}>
+                            <div className={"w-1/3 h-auto relative rounded-lg"}>
                                 <Image src={"/shirt.png"} alt={"Shirt"} fill objectFit={"cover"}
                                        className={"rounded-lg"}/>
                             </div>
