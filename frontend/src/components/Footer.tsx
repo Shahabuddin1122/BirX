@@ -13,7 +13,7 @@ return (
                     <Image src={"/tiktok.svg"} alt={"tiktok"} width={20} height={20} className={"rounded-full"}/>
                 </div>
                 <div className={"flex justify-between gap-x-16 py-8"}>
-                    <div className={"flex flex-col w-full md:flex-row md:justify-around gap-y-5"}>
+                    <div className={"flex flex-col w-full md:flex-row md:justify-between gap-y-5"}>
                         <div className={"flex flex-col gap-y-2"}>
                             <h1 className={"font-semibold text-md tracking-wider"}>COMPANY</h1>
                             <p className={"text-gray-500 text-sm"}>About</p>

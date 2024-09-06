@@ -36,14 +36,14 @@ export default function Home() {
               </div>
           </div>
 
-          <div className={"md:mx-24 p-5 bg-black text-white flex flex-wrap justify-center gap-x-10 gap-y-2"}>
+          <div className={"md:mx-24 md:px-0 p-5 bg-black text-white flex flex-wrap justify-center gap-x-10 gap-y-2"}>
               <p className={"font-serif text-2xl"}>VERSACE</p>
               <p className={"font-mono text-2xl"}>ZARA</p>
               <p className={"font-sans text-2xl"}>GUCCI</p>
               <p className={"font-sans font-bold text-2xl"}>PRADA</p>
               <p className={"font-mono text-2xl font-extralight"}>Calvin Klein</p>
           </div>
-          <div className="px-5 md:mx-24">
+          <div className="px-5 md:px-0 md:mx-24">
               <h1 className="text-2xl font-bold text-center py-5 lg:text-4xl">NEW ARRIVALS</h1>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 pb-5">
@@ -65,7 +65,7 @@ export default function Home() {
           </div>
 
 
-          <div className={"px-5 md:mx-24"}>
+          <div className={"px-5 md:px-0 md:mx-24"}>
               <h1 className={"text-2xl font-bold text-center py-5 lg:text-4xl"}>TOP SELLING</h1>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 pb-5">
                   <ProductCard image="/shirt.png" name="T-SHIRT WITH TAPE DETAILS" price="1020"
@@ -83,7 +83,7 @@ export default function Home() {
               </div>
               <Button text={"View All"} option={false} onclick={() => router.push('/products')}/>
           </div>
-          <div className={"sm:mx-5 md:mx-24 bg-gray-100 rounded-xl my-10 py-5"}>
+          <div className={"sm:mx-5  md:mx-24 bg-gray-100 rounded-xl my-10 py-5"}>
               <h1 className={"text-4xl font-extrabold text-center py-5 lg:text-4xl"}>BROWSE BY <br/>DRESS STYLE</h1>
               <div className={"grid grid-cols-1 md:grid-cols-3 gap-4 mx-4"}>
                   <div className={'lg:h-[200px] bg-white rounded-xl py-20 relative md:col-span-2'}>
