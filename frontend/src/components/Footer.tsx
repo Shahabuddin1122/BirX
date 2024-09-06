@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
 return (
     <>
-        <div className={"sm:px-5 md:mx-24"}>
+        <div className={"px-5 md:px-0 md:mx-24"}>
             <Image src={"/logo.png"} alt={"logo"} width={50} height={50}/>
             <p>We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
             <div className={"py-3"}>
@@ -13,7 +13,7 @@ return (
                     <Image src={"/tiktok.svg"} alt={"tiktok"} width={20} height={20} className={"rounded-full"}/>
                 </div>
                 <div className={"flex justify-between gap-x-16 py-8"}>
-                    <div className={"flex flex-col gap-y-5"}>
+                    <div className={"flex flex-col w-full md:flex-row md:justify-around gap-y-5"}>
                         <div className={"flex flex-col gap-y-2"}>
                             <h1 className={"font-semibold text-md tracking-wider"}>COMPANY</h1>
                             <p className={"text-gray-500 text-sm"}>About</p>
@@ -29,7 +29,7 @@ return (
                             <p className={"text-gray-500 text-sm"}>Privacy Policy</p>
                         </div>
                     </div>
-                    <div className={"flex flex-col gap-y-5"}>
+                    <div className={"flex flex-col w-full md:flex-row md:justify-around gap-y-5"}>
                         <div className={"flex flex-col gap-y-2"}>
                             <h1 className={"font-semibold text-md tracking-wider"}>FAQ</h1>
                             <p className={"text-gray-500 text-sm"}>Account</p>
