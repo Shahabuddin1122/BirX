@@ -2,8 +2,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 const Navbar = () => {
+    const router = useRouter()
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
     const [searchOpen, setSearchOpen] = useState<boolean>(false);
 
@@ -30,7 +32,7 @@ const Navbar = () => {
                                     onClick={toggleSidebar}
                                     className={"cursor-pointer block sm:hidden"}
                                 />
-                                <Image src={"/logo.png"} alt={"logo"} width={50} height={50}/>
+                                <Image src={"/logo.png"} alt={"logo"} className={'cursor-pointer'} width={50} height={50} onClick={()=> router.push('/')}/>
                             </>
                         ) : (
                             <Image
@@ -43,11 +45,10 @@ const Navbar = () => {
                             />
                         )
                     }
-
                     <div className={"hidden sm:flex md:gap-x-4 xl:gap-x-12 justify-center items-center"}>
-                        <p className={"md:text-xs lg:text-base"}>Shop</p>
-                        <p className={"md:text-xs lg:text-base"}>Sale</p>
-                        <p className={"md:text-xs lg:text-base"}>New Arrivals</p>
+                        <p className={"md:text-xs lg:text-base cursor-pointer"}><Link href={'/products'}>Shop</Link></p>
+                        <p className={"md:text-xs lg:text-base cursor-pointer"}>Sale</p>
+                        <p className={"md:text-xs lg:text-base cursor-pointer"}>New Arrivals</p>
                     </div>
                 </div>
                 <div className={"flex justify-center items-center gap-5"}>
