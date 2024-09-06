@@ -85,21 +85,21 @@ export default function Home() {
           </div>
           <div className={"sm:mx-5 md:mx-24 bg-gray-100 rounded-xl my-10 py-5"}>
               <h1 className={"text-4xl font-extrabold text-center py-5 lg:text-4xl"}>BROWSE BY <br/>DRESS STYLE</h1>
-              <div className={"grid grid-cols-1 md:grid-cols-3"}>
-                  <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4 md:col-span-2"}>
-                      <Image src={"/casual.png"} alt={"casual"} fill objectFit={"cover"} className={"rounded-xl"}/>
+              <div className={"grid grid-cols-1 md:grid-cols-3 gap-4 mx-4"}>
+                  <div className={'lg:h-[200px] bg-white rounded-xl py-20 relative md:col-span-2'}>
+                      <Image src={'/casual.png'} alt={'casual'} objectFit={'cover'} layout={'fill'}/>
                       <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Casual</h2>
                   </div>
-                  <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4"}>
-                      <Image src={"/formal.png"} alt={"formal"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <div className={'lg:h-[200px] bg-white rounded-xl py-20 relative'}>
+                      <Image src={'/formal.png'} alt={'casual'} objectFit={'cover'} layout={'fill'}/>
                       <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Formal</h2>
                   </div>
-                  <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4"}>
-                      <Image src={"/party.png"} alt={"party"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <div className={'lg:h-[200px] bg-white rounded-xl py-20 relative'}>
+                      <Image src={'/party.png'} alt={'casual'} layout={'fill'}/>
                       <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Party</h2>
                   </div>
-                  <div className={"w-4/5 h-[200px] bg-white mx-auto rounded-xl relative my-4 md:col-span-2"}>
-                      <Image src={"/gym.png"} alt={"gym"} fill objectFit={"cover"} className={"rounded-xl"}/>
+                  <div className={'lg:h-[200px] bg-white rounded-xl py-20 relative md:col-span-2'}>
+                      <Image src={'/gym.png'} alt={'casual'} layout={'fill'}/>
                       <h2 className={"absolute top-5 left-4 font-bold text-xl"}>Gym</h2>
                   </div>
               </div>
