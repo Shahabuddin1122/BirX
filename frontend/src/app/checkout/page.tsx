@@ -12,7 +12,7 @@ const Page = () => {
     return (
         <>
             <Navbar/>
-            <div className={"px-5"}>
+            <div className={"md:mx-24 md:px-0 px-5"}>
                 <div>
                     <div className={"flex gap-x-2"}>
                         <Image src={'/home.svg'} alt={'home'} width={20} height={20}/>
@@ -49,7 +49,9 @@ const Page = () => {
                             <p className={"font-bold text-xl"}>$467</p>
                         </div>
                     </div>
-                    <Button text={"Order"} option={true} onclick={() => router.push('/')}/>
+                    <div className={'flex justify-center items-center '}>
+                        <Button text={"Order"} option={true} onclick={() => router.push('/')}/>
+                    </div>
                 </div>
             </div>
             <Footer/>
