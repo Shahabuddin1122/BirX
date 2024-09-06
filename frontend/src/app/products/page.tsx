@@ -64,7 +64,7 @@ const Page: React.FC = () => {
                             <h1 className={"font-extrabold"}>Color</h1>
                             <Image src={'/up.svg'} alt={'right'} width={15} height={15}/>
                         </div>
-                        <div className={"flex flex-wrap gap-x-4 py-4"}>
+                        <div className={"flex flex-wrap gap-4 py-4"}>
                             <div className={"w-8 h-8 rounded-full bg-black"}></div>
                             <div className={"w-8 h-8 rounded-full bg-gray-400"}></div>
                             <div className={"w-8 h-8 rounded-full bg-amber-700"}></div>
@@ -121,12 +121,14 @@ const Page: React.FC = () => {
                                 <Image src={"/left.svg"} alt={"Left"} width={15} height={15}/>
                                 <p>Previous</p>
                             </div>
-                            <p>1</p>
-                            <p>2</p>
-                            <p>3</p>
-                            <p>...</p>
+                            <div className={'flex gap-x-6 justify-center items-center'}>
+                                <p>1</p>
+                                <p className={'bg-slate-100 p-2 rounded-lg'}>2</p>
+                                <p>3</p>
+                                <p>...</p>
+                            </div>
                             <div className={"px-4 py-2 border flex gap-x-4 items-center"}>
-                                <p>Next</p>
+                            <p>Next</p>
                                 <Image src={"/right.svg"} alt={"Left"} width={15} height={15}/>
                             </div>
                         </div>
