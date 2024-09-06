@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className={"md:mx-24  px-5 py-5 flex justify-between items-center"}>
+            <div className={"md:mx-24 md:px-0  px-5 py-5 flex justify-between items-center"}>
                 <div className={"flex justify-center items-center gap-4"}>
                     {
                         !searchOpen ? (
@@ -44,10 +44,10 @@ const Navbar = () => {
                         )
                     }
 
-                    <div className={"hidden sm:flex md:gap-x-4 xl:gap-x-12"}>
-                        <p>Shop</p>
-                        <p>Sale</p>
-                        <p>New Arrivals</p>
+                    <div className={"hidden sm:flex md:gap-x-4 xl:gap-x-12 justify-center items-center"}>
+                        <p className={"md:text-xs lg:text-base"}>Shop</p>
+                        <p className={"md:text-xs lg:text-base"}>Sale</p>
+                        <p className={"md:text-xs lg:text-base"}>New Arrivals</p>
                     </div>
                 </div>
                 <div className={"flex justify-center items-center gap-5"}>

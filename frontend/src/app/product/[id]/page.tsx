@@ -12,7 +12,7 @@ const Page = () => {
     return (
         <>
             <Navbar/>
-            <div className={"px-5"}>
+            <div className={"md:mx-24 px-5"}>
                 <h1 className={"text-slate-400"}>Home &gt; Shop &gt; Men &gt; <span
                     className={"text-black"}>T-Shirts</span></h1>
                 <div className={"w-full bg-slate-100 rounded-lg relative my-4"}>
