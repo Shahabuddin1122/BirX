@@ -19,9 +19,9 @@ const Page = () => {
                         <h1 className={"text-xl font-extrabold"}>Address</h1>
                     </div>
                     <p className={"pb-4"}>Your product will arrive at this place</p>
-                    <InputBox headerText={"Full Name"}/>
-                    <InputBox headerText={"Mobile Number"}/>
-                    <InputBox headerText={"Address"}/>
+                    <InputBox headerText={"Full Name"} required={true}/>
+                    <InputBox headerText={"Mobile Number"} required={true}/>
+                    <InputBox headerText={"Address"} required={true}/>
                     <Calender/>
                 </div>
                 <div className={"py-4"}>
