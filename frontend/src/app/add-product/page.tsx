@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import Dropdown from "@/components/dropdown";
 import Image from "next/image";
 import ImageInput from "@/components/image-input";
+import AdminNavbar from "@/components/admin-navbar";
 
 const Page = () => {
     const categoryOptions = [
@@ -23,7 +24,7 @@ const Page = () => {
 
     return (
         <>
-            <Navbar/>
+            <AdminNavbar/>
             <div className={'md:px-0 md:mx-24 px-5 pb-5'}>
                 <p className={"text-slate-400"}>Home &gt; <span
                     className={"text-black"}>Add-product</span></p>

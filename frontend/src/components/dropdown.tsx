@@ -16,7 +16,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, name }) => {
         <div>
             <select className="w-full py-3 border-2 rounded-lg px-2" required name={name}
                     >
-                <option value="" disabled selected>Select {name}</option>
+                <option value="" disabled selected>Select</option>
                 {options.map((division) => (
                     <option key={division.label} value={division.label}>
                         {division.label}
