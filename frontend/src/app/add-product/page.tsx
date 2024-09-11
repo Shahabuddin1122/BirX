@@ -26,7 +26,7 @@ const Page = () => {
         <>
             <AdminNavbar/>
             <div className={'md:px-0 md:mx-24 px-5 pb-5'}>
-                <p className={"text-slate-400"}>Home &gt; <span
+                <p className={"text-slate-400"}>Dashboard &gt; <span
                     className={"text-black"}>Add-product</span></p>
                 <h1 className={"text-3xl font-extrabold py-4"}>ADD A PRODUCT</h1>
                 <div className={'md:grid grid-cols-12 gap-x-4'}>

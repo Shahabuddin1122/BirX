@@ -29,7 +29,7 @@ const AdminNavbar = () => {
                     <div className={"hidden sm:flex md:gap-x-4 xl:gap-x-12 justify-center items-center"}>
                         <p className={"md:text-xs lg:text-base cursor-pointer font-bold"}><Link href={'/admin-dashboard'}>Dashboard</Link></p>
                         <p className={"md:text-xs lg:text-base cursor-pointer"}><Link href={'/add-product'}>Add Product</Link></p>
-                        <p className={"md:text-xs lg:text-base cursor-pointer"}>View Product</p>
+                        <p className={"md:text-xs lg:text-base cursor-pointer"}><Link href={'/view-product'}>View Product</Link></p>
                         <p className={"md:text-xs lg:text-base cursor-pointer"}>Order</p>
                     </div>
                 </div>

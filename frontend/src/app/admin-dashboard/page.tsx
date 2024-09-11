@@ -64,11 +64,16 @@ const Page = () => {
                 </div>
                 <div className={'p-2 border rounded-xl bg-slate-50 my-4'}>
                     <h1 className={'font-bold text-2xl'}>Recent orders</h1>
-                    <Table data={sampleOrderData}/>
+                    <div className={'px-5'}>
+                        <Table data={sampleOrderData}/>
+                    </div>
                 </div>
                 <div className={'p-2 border rounded-xl bg-slate-50 my-4'}>
                     <h1 className={'font-bold text-2xl'}>Top products</h1>
-                    <Table data={sampleTopProduct}/>
+                    <div className={'px-5'}>
+                        <Table data={sampleTopProduct}/>
+                    </div>
+
                 </div>
             </div>
             <Footer/>
