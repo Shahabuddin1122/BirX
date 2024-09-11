@@ -21,7 +21,8 @@ type TableProps = {
 };
 
 const Table: React.FC<TableProps> = ({ data, admin }) => {
-    const headers = Object.keys(data[0]);
+
+    const headers = Object.keys(data[0]) as (keyof ProductData)[];
 
     return (
         <div className="flex justify-center py-5">
@@ -34,9 +35,9 @@ const Table: React.FC<TableProps> = ({ data, admin }) => {
                                 {header.replace(/([A-Z])/g, ' $1').toUpperCase()} {/* Formatting camelCase */}
                             </th>
                         ))}
-                        {admin && <th className="py-3 px-6 text-left">
-                            ACTION
-                        </th>}
+                        {admin && (
+                            <th className="py-3 px-6 text-left">ACTION</th>
+                        )}
                     </tr>
                     </thead>
                     <tbody className="text-gray-600 text-sm">
@@ -59,35 +60,34 @@ const Table: React.FC<TableProps> = ({ data, admin }) => {
                                             className={`py-1 px-3 rounded-full text-xs whitespace-nowrap
                                                     ${item[key] === 'Out of stock' ? 'bg-orange-200 text-orange-600' : ''} 
                                                     ${item[key] === 'In Stock' ? 'bg-green-200 text-green-600' : ''} 
-                                                    ${item[key] === 'Limited Stock' ? 'bg-yellow-200 text-yellow-600' : ''} 
-                                                    `}
+                                                    ${item[key] === 'Limited Stock' ? 'bg-yellow-200 text-yellow-600' : ''}`}
                                         >
                                                 {item[key]}
                                             </span>
                                     ) : key === 'review' ? (
-                                        <span className={'flex gap-x-1'}>
-                                            <Image src="/star2.svg" alt="Star" width={16} height={16} className="mr-1"/>
+                                        <span className="flex gap-x-1">
+                                                <Image src="/star2.svg" alt="Star" width={16} height={16} className="mr-1" />
                                             {item[key]}
-                                        </span>
+                                            </span>
                                     ) : key === 'productName' ? (
-                                        <span className={'flex gap-x-2 font-bold text-black'}>
-                                            <Image src="/pant.jpg" alt="Star" width={20} height={20} className="mr-1"/>
+                                        <span className="flex gap-x-2 font-bold text-black">
+                                                <Image src="/pant.jpg" alt="Product" width={20} height={20} className="mr-1" />
                                             {item[key]}
-                                        </span>
-                                    ):(
+                                            </span>
+                                    ) : (
                                         item[key]
                                     )}
                                 </td>
                             ))}
-                            {admin &&
+                            {admin && (
                                 <td className="py-3 px-6 text-left">
-                                    <span className={'flex gap-x-2'}>
-                                        <Image src="/eye.svg" alt="Star" width={16} height={16} className="mr-1"/>
-                                        <Image src="/edit.svg" alt="Star" width={16} height={16} className="mr-1"/>
-                                        <Image src="/delete.svg" alt="Star" width={16} height={16} className="mr-1"/>
-                                    </span>
+                                        <span className="flex gap-x-2">
+                                            <Image src="/eye.svg" alt="View" width={16} height={16} className="mr-1" />
+                                            <Image src="/edit.svg" alt="Edit" width={16} height={16} className="mr-1" />
+                                            <Image src="/delete.svg" alt="Delete" width={16} height={16} className="mr-1" />
+                                        </span>
                                 </td>
-                            }
+                            )}
                         </tr>
                     ))}
                     </tbody>
