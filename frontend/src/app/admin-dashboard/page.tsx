@@ -5,11 +5,24 @@ import InfoCard from "@/components/info-card";
 import Dropdown from "@/components/dropdown";
 import PieChart from "@/components/pie-chart";
 import BarChart from "@/components/bar-chart";
+import Table from "@/components/table";
 
 const options = [
     {label: 'week'},
     {label: 'month'},
 ]
+const sampleOrderData = [
+    { productName: 'Product A', customerId: 'C001', productId: 'P001', quantity: 2, price: '$20', status: 'Shipped' },
+    { productName: 'Product B', customerId: 'C002', productId: 'P002', quantity: 1, price: '$15', status: 'Pending' },
+    { productName: 'Product C', customerId: 'C003', productId: 'P003', quantity: 3, price: '$30', status: 'Delivered' },
+    { productName: 'Product D', customerId: 'C004', productId: 'P004', quantity: 4, price: '$40', status: 'Cancelled' },
+];
+const sampleTopProduct = [
+    { productName: 'Product A', review: 2.3, price: '$20',},
+    { productName: 'Product B', review: 1.9, price: '$15',},
+    { productName: 'Product C', review: 5, price: '$30',},
+    { productName: 'Product D', review: 4.7, price: '$40',},
+];
 
 const Page = () => {
     return (
@@ -48,6 +61,14 @@ const Page = () => {
                         <Dropdown options={options} name={'category'}/>
                     </div>
                     <BarChart/>
+                </div>
+                <div className={'p-2 border rounded-xl bg-slate-50 my-4'}>
+                    <h1 className={'font-bold text-2xl'}>Recent orders</h1>
+                    <Table data={sampleOrderData}/>
+                </div>
+                <div className={'p-2 border rounded-xl bg-slate-50 my-4'}>
+                    <h1 className={'font-bold text-2xl'}>Top products</h1>
+                    <Table data={sampleTopProduct}/>
                 </div>
             </div>
             <Footer/>
