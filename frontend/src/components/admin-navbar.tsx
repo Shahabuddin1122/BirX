@@ -58,7 +58,7 @@ const AdminNavbar = () => {
                                 <p>Add a product</p>
                             </div>
                         </Link></li>
-                        <li><Link href={"/add-product"} className={""}>
+                        <li><Link href={"/view-product"} className={""}>
                             <div className={'flex gap-x-4'}>
                                 <Image src={'/shop.svg'} alt={'home'} width={15} height={15}/>
                                 <p>View products</p>

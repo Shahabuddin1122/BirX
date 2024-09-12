@@ -46,7 +46,6 @@ const Page = () => {
                     <div className={"py-4 flex justify-between items-center gap-x-6 md:gap-x-10"}>
                         <div className={"px-3 py-3 border rounded-full flex gap-x-4 items-center"}>
                             <Image src={"/left.svg"} alt={"Left"} width={15} height={15}/>
-                            {/*<p className={""}>Previous</p>*/}
                         </div>
                         <div className={'flex justify-center items-center gap-x-4'}>
                             <p>1</p>
@@ -54,7 +53,6 @@ const Page = () => {
                             <p>3</p>
                         </div>
                         <div className={"px-3 py-3 border rounded-full flex gap-x-4 items-center"}>
-                            {/*<p>Next</p>*/}
                             <Image src={"/right.svg"} alt={"Left"} width={15} height={15}/>
                         </div>
                     </div>
