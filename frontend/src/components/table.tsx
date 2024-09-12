@@ -2,17 +2,23 @@
 
 import React from "react";
 import Image from "next/image";
+import {resolveSrv} from "node:dns";
 
 type ProductData = {
     productName?: string;
+    userName?: string;
     customerId?: string;
     productId?: string;
+    orderId?: string;
     quantity?: number;
     price?: string;
     status?: string;
     review?: number;
     sale?: number;
     stock?: string;
+    mobile?: string;
+    color?: string;
+    size?: string;
 };
 
 type TableProps = {
@@ -74,6 +80,15 @@ const Table: React.FC<TableProps> = ({ data, admin }) => {
                                                 <Image src="/pant.jpg" alt="Product" width={20} height={20} className="mr-1" />
                                             {item[key]}
                                             </span>
+                                    ) : key === 'color' ? (
+                                        <span className="flex items-center gap-x-2">
+                                            <span
+                                                className="w-4 h-4 rounded-full"
+                                                style={{ backgroundColor: item[key]?.toLowerCase() || 'transparent' }}
+                                                title={item[key]}
+                                            ></span>
+                                            {item[key]}
+                                        </span>
                                     ) : (
                                         item[key]
                                     )}
