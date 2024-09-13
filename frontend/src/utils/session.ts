@@ -1,4 +1,4 @@
-let sessionStatus = false;
+let sessionStatus = true;
 
 export const setSessionStatus = (status: boolean) => {
     sessionStatus = status;

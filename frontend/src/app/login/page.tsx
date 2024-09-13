@@ -3,7 +3,7 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
-import Cookies from 'js-cookie';
+import {setSessionStatus} from "@/utils/session";
 
 const Page = () => {
     const router = useRouter();
@@ -11,7 +11,7 @@ const Page = () => {
 
     const check = () => {
         if (userPassword === 'abcde') {
-            Cookies.set('sessionStatus', 'true', { expires: 1 });
+            setSessionStatus(true);
             router.push('/admin-dashboard');
         } else {
             alert("Incorrect password");
