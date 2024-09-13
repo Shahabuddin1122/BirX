@@ -30,7 +30,7 @@ const AdminNavbar = () => {
                         <p className={"md:text-xs lg:text-base cursor-pointer font-bold"}><Link href={'/admin-dashboard'}>Dashboard</Link></p>
                         <p className={"md:text-xs lg:text-base cursor-pointer"}><Link href={'/add-product'}>Add Product</Link></p>
                         <p className={"md:text-xs lg:text-base cursor-pointer"}><Link href={'/view-product'}>View Product</Link></p>
-                        <p className={"md:text-xs lg:text-base cursor-pointer"}>Order</p>
+                        <p className={"md:text-xs lg:text-base cursor-pointer"}><Link href={'/orders'}>Order</Link></p>
                     </div>
                 </div>
                 <div className={"flex justify-center items-center gap-5"}>
@@ -64,7 +64,7 @@ const AdminNavbar = () => {
                                 <p>View products</p>
                             </div>
                         </Link></li>
-                        <li><Link href={"/add-product"} className={""}>
+                        <li><Link href={"/orders"} className={""}>
                             <div className={'flex gap-x-4'}>
                                 <Image src={'/store.svg'} alt={'home'} width={15} height={15}/>
                                 <p>Order</p>

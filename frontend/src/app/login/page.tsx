@@ -1,8 +1,19 @@
+"use client"
 import Image from "next/image";
 import Button from "@/components/Button";
-import React from "react";
+import React, {useState} from "react";
+import {useRouter} from "next/navigation";
 
 const Page = () => {
+    const router = useRouter();
+    const [userPassword,setUserPassword] = useState<string>('');
+
+    const check = ()=>{
+        if(userPassword == 'abcde'){
+            router.push('/admin-dashboard')
+        }
+
+    }
     return (
         <>
             <Image src={"/logo.png"} alt={"logo"} width={100} height={100} className={'px-4'}/>
@@ -14,11 +25,15 @@ const Page = () => {
                 <div className={'w-full flex flex-col gap-y-1'}>
                     <div className={'flex flex-col gap-y-4'}>
                         <div className={'w-full border bg-white flex gap-x-2 rounded-full px-4'}>
-                            <Image src={'/email.svg'} alt={'email'} width={20} height={20}/>
-                            <input placeholder={'Enter your email'}
+                            <Image src={'/key.svg'} alt={'email'} width={20} height={20}/>
+                            <input placeholder={'Enter your password'}
+                                   type={'password'}
+                                   name={'password'}
+                                   value={userPassword}
+                                   onChange={(e)=> setUserPassword(e.target.value)}
                                    className={'p-3 w-full rounded-full focus:outline-none'}/>
                         </div>
-                        <button className={'py-3 w-full bg-black text-white rounded-full'}>Sign In</button>
+                        <Button text={'Sign In'} option={true} onclick={check}/>
                     </div>
                     <p className={'flex justify-end text-lg underline'}>Forget password ?</p>
                 </div>
