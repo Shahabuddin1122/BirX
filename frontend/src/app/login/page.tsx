@@ -3,17 +3,20 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import React, {useState} from "react";
 import {useRouter} from "next/navigation";
+import {setSessionStatus} from "@/utils/session";
 
 const Page = () => {
     const router = useRouter();
     const [userPassword,setUserPassword] = useState<string>('');
 
-    const check = ()=>{
-        if(userPassword == 'abcde'){
-            router.push('/admin-dashboard')
+    const check = () => {
+        if (userPassword === 'abcde') {
+            setSessionStatus(true);
+            router.push('/admin-dashboard');
+        } else {
+            alert("Incorrect password");
         }
-
-    }
+    };
     return (
         <>
             <Image src={"/logo.png"} alt={"logo"} width={100} height={100} className={'px-4'}/>

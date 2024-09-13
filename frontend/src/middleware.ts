@@ -1,4 +1,4 @@
-import {sessionStatus} from "@/utils/session";
+import {getSessionStatus} from "@/utils/session";
 import {NextRequest, NextResponse} from "next/server";
 
 const staticRoutes = ['/admin-dashboard', '/add-product', '/orders', '/view-product'];
@@ -11,7 +11,7 @@ export default function middleware(req: NextRequest) {
 
     const isDynamicProtected = dynamicRoutes.some(route => pathname.startsWith(route));
 
-    if (!sessionStatus && (isStaticProtected || isDynamicProtected)) {
+    if (!getSessionStatus() && (isStaticProtected || isDynamicProtected)) {
         const absoluteURL = new URL('/', req.nextUrl.origin);
         return NextResponse.redirect(absoluteURL.toString());
     }
