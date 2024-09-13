@@ -19,7 +19,9 @@ export default function Home() {
                   <p className={"text-xl py-3"}>Browse through our diverse range of meticulously crafted garments,
                       designed
                       to bring out your individuality and cater to your sense of style.</p>
-                  <Button text="Shop now" option={true} onclick={() => router.push('/products')}/>
+                  <div className={'lg:w-1/3 lg:mx-auto'}>
+                      <Button text="Shop now" option={true} onclick={() => router.push('/products')}/>
+                  </div>
                   <div className={"flex justify-around py-3"}>
                       <div>
                           <h1 className={"text-lg font-bold"}>1000+</h1>
@@ -63,7 +65,7 @@ export default function Home() {
                   </div>
               </div>
 
-              <div className={'w-full flex items-center justify-center'}>
+              <div className={'md:w-1/3 mx-auto'}>
                   <Button text="View All" option={false} onclick={() => router.push('/products')}/>
               </div>
           </div>
@@ -85,7 +87,7 @@ export default function Home() {
                                    onClick={() => router.push('/product/1')}/>
                   </div>
               </div>
-              <div className={'flex justify-center items-center w-full'}>
+              <div className={'md:w-1/3 mx-auto'}>
                   <Button text={"View All"} option={false} onclick={() => router.push('/products')}/>
               </div>
           </div>
