@@ -39,7 +39,7 @@ const Page = () => {
                         <p className={"text-lg"}>Total</p>
                         <p className={"font-bold text-xl"}>৳ 467</p>
                     </div>
-                    <div className={'w-full flex justify-center items-center'}>
+                    <div className={'md:w-1/3 md:mx-auto'}>
                         <Button text={"Go to Checkout"} option={true} onclick={()=> router.push('/checkout')}/>
                     </div>
                 </div>

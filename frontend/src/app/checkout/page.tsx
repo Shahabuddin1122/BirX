@@ -22,7 +22,6 @@ const Page = () => {
                     <InputBox headerText={"Full Name"} required={true}/>
                     <InputBox headerText={"Mobile Number"} required={true}/>
                     <InputBox headerText={"Address"} required={true}/>
-                    <Calender/>
                 </div>
                 <div className={"py-4"}>
                     <div className={"flex gap-x-2"}>
@@ -49,7 +48,7 @@ const Page = () => {
                             <p className={"font-bold text-xl"}>$467</p>
                         </div>
                     </div>
-                    <div className={'flex justify-center items-center '}>
+                    <div className={'md:w-1/3 md:mx-auto'}>
                         <Button text={"Order"} option={true} onclick={() => router.push('/')}/>
                     </div>
                 </div>

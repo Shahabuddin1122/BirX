@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 import {useRouter} from "next/navigation";
 import InputBox from "@/components/inputBox";
+import UserInfo from "@/components/user-info";
 
 export default function Home() {
   const router = useRouter();
@@ -18,7 +19,9 @@ export default function Home() {
                   <p className={"text-xl py-3"}>Browse through our diverse range of meticulously crafted garments,
                       designed
                       to bring out your individuality and cater to your sense of style.</p>
-                  <Button text="Shop now" option={true} onclick={() => router.push('/products')}/>
+                  <div className={'lg:w-1/3 lg:mx-auto'}>
+                      <Button text="Shop now" option={true} onclick={() => router.push('/products')}/>
+                  </div>
                   <div className={"flex justify-around py-3"}>
                       <div>
                           <h1 className={"text-lg font-bold"}>1000+</h1>
@@ -62,7 +65,7 @@ export default function Home() {
                   </div>
               </div>
 
-              <div className={'w-full flex items-center justify-center'}>
+              <div className={'md:w-1/3 mx-auto'}>
                   <Button text="View All" option={false} onclick={() => router.push('/products')}/>
               </div>
           </div>
@@ -84,7 +87,7 @@ export default function Home() {
                                    onClick={() => router.push('/product/1')}/>
                   </div>
               </div>
-              <div className={'flex justify-center items-center w-full'}>
+              <div className={'md:w-1/3 mx-auto'}>
                   <Button text={"View All"} option={false} onclick={() => router.push('/products')}/>
               </div>
           </div>
@@ -109,16 +112,7 @@ export default function Home() {
                   </div>
               </div>
           </div>
-          <div className={'sm:mx-5  md:mx-24 py-5 bg-black rounded-xl my-10 px-4 flex flex-col gap-y-6 md:grid grid-cols-12 md:gap-x-4 md:items-center'}>
-              <p className={'text-3xl text-white font-extrabold md:col-span-6'}>STAY UPTO DATE ABOUT OUR LATEST OFFERS</p>
-              <div className={'flex flex-col gap-y-4 md:col-span-6'}>
-                  <div className={'w-full border bg-white flex gap-x-2 rounded-full px-4'}>
-                      <Image src={'/email.svg'} alt={'email'} width={20} height={20}/>
-                      <input placeholder={'Enter your email'} className={'p-3 w-full rounded-full focus:outline-none'}/>
-                  </div>
-                  <button className={'w-full py-3 rounded-full bg-white'}>Subscribe to BirX</button>
-              </div>
-          </div>
+          <UserInfo/>
           <Footer/>
 
       </>
