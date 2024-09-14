@@ -1,9 +1,17 @@
 VM administrator
 
 username: BirXAdminShahabuddin
-password: -sSZA/EiImf8Q[<dA8V86£/M&l_>
+password: #Sh@019827hridoy
 
 admin superuser
 
 username: admin
 password: admin
+
+database info
+
+Hostname: 40.88.11.45
+Port: 5432
+Username: postgres
+Password: #Sh@019827
+database: birx
