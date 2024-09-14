@@ -1,0 +1,9 @@
+VM administrator
+
+username: BirXAdminShahabuddin
+password: -sSZA/EiImf8Q[<dA8V86£/M&l_>
+
+admin superuser
+
+username: admin
+password: admin
