@@ -36,4 +36,4 @@ jobs:
           context: .
           file: backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/your-repo:${{ github.ref_name }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/backend-birx:${{ github.ref_name }}
