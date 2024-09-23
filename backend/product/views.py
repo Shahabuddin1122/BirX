@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -37,9 +38,10 @@ class ProductCreateView(APIView):
 
 
 class ProductListView(APIView):
-    def get(self, request):
+    def get(self, request, page_number):
         products = Product.objects.all()
-        serializer = ProductSerializer(products, many=True)
+        productPerPage = Paginator(products, 2)
+        serializer = ProductSerializer(productPerPage.page(page_number).object_list, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
