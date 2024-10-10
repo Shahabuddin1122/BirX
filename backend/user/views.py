@@ -24,6 +24,22 @@ def login(request):
     try:
         data = request.data
         user, created = User.objects.get_or_create(number=data['number'])
+        print(created)
+        serializer = UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except User.DoesNotExist:
+        return Response("user not found", status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def check_password(request):
+    try:
+        data = request.data
+        user = User.objects.get(number=data['number'])
+        if user.password == "":
+            return Response("normal user", status=status.HTTP_200_OK)
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     except User.DoesNotExist:
