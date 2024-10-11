@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Size, Color, Image
+from .models import Product, Size, Color, Image, OrderProduct, Order
 
 
 class SizeSerializer(serializers.ModelSerializer):
@@ -50,3 +50,38 @@ class ProductSerializer(serializers.ModelSerializer):
             product.images.add(image)
 
         return product
+
+
+class OrderProductSerializer(serializers.ModelSerializer):
+    product_id = serializers.PrimaryKeyRelatedField(source='product', queryset=Product.objects.all())
+    product_details = ProductSerializer(source='product', read_only=True)
+
+    class Meta:
+        model = OrderProduct
+        fields = ['product_id', 'product_details', 'quantity', 'size', 'color']
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    products = OrderProductSerializer(many=True, write_only=True)  # Write products during creation
+    products_details = OrderProductSerializer(source='orderproduct_set', many=True, read_only=True)  # Read product details for the response
+    total_price = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
+
+    class Meta:
+        model = Order
+        fields = ['id', 'user', 'status', 'delivery_date', 'delivery_fee', 'total_price', 'products', 'products_details']
+
+    def create(self, validated_data):
+        products_data = validated_data.pop('products')  # Extract products data from request
+        order = Order.objects.create(**validated_data)  # Create the order
+
+        # Create OrderProduct instances for each product
+        for product_data in products_data:
+            product = product_data['product']
+            quantity = product_data['quantity']
+            color = product_data['color']
+            size = product_data['size']
+            OrderProduct.objects.create(order=order, product=product, quantity=quantity, color=color, size=size)
+
+        # After adding products, calculate the total price
+        order.calculate_total_price()
+        return order
