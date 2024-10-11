@@ -6,8 +6,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from product.models import Product, OrderProduct
-from product.serializers import ProductSerializer, OrderSerializer
+from product.models import Product, OrderProduct, Order, Cart, CartProduct
+from product.serializers import *
 from user.models import User
 
 
@@ -87,5 +87,96 @@ class OrderPlaceView(APIView):
                 return Response(OrderSerializer(order).data, status=status.HTTP_201_CREATED)
             else:
                 return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        orders = Order.objects.all().order_by('-id')
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request):
+        try:
+            order_id = request.query_params.get('order_id', None)
+            assert order_id is not None, "Order ID must be provided."
+            order = get_object_or_404(Order, id=order_id)
+
+            assert order.status != 'shipped', "Order is already shipped."
+
+            order.status = 'shipped'
+            order.save()
+
+            return Response({"message": "Order status updated to 'shipped' successfully."},
+                            status=status.HTTP_200_OK)
+
+        except AssertionError as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CartView(APIView):
+    def get(self, request):
+        try:
+            user_id = request.query_params.get('user_id', None)
+            cart = CartProduct.objects.filter(cart__user_id=user_id)
+            serializer = CartProductSerializer(cart, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
+
+    def post(self, request):
+        user_id = request.data.get('user_id')
+        product_id = request.data.get('product_id')
+        quantity = request.data.get('quantity', 1)
+        size = request.data.get('size', 'Medium')
+        color = request.data.get('color', 'Black')
+
+        user = get_object_or_404(User, id=user_id)
+        cart, created = Cart.objects.get_or_create(user=user)
+
+        product = get_object_or_404(Product, id=product_id)
+
+        cart_product, created = CartProduct.objects.get_or_create(
+            cart=cart, product=product, defaults={'quantity': quantity, 'size': size, 'color': color}
+        )
+
+        if not created:
+            # If the product is already in the cart, update the quantity
+            cart_product.quantity += int(quantity)
+            cart_product.save()
+        serializer = CartProductSerializer(cart_product)
+
+        return Response({"message": "Product added to cart", "data": serializer.data})
+
+    def delete(self, request):
+        user_id = request.data.get('user_id', None)
+        user = get_object_or_404(User, id=user_id)
+        product_id = request.data.get('product_id')
+
+        cart = get_object_or_404(Cart, user=user)
+        product = get_object_or_404(Product, id=product_id)
+
+        cart_product = get_object_or_404(CartProduct, cart=cart, product=product)
+
+        cart_product.delete()
+
+        return Response({"message": "Product removed from cart"})
+
+    def put(self, request):
+        try:
+            user_id = request.data.get('user_id', None)
+            product_id = request.data.get('product_id')
+            quantity = request.data.get('quantity')
+
+            user = get_object_or_404(User, id=user_id)
+            cart = get_object_or_404(Cart, user=user)
+            product = get_object_or_404(Product, id=product_id)
+
+            cart_product = get_object_or_404(CartProduct, cart=cart, product=product)
+
+            if quantity:
+                cart_product.quantity = int(quantity)
+                cart_product.save()
+            serializer = CartProductSerializer(cart_product)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
