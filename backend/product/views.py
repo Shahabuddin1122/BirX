@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 
 from product.models import Product, OrderProduct, Order, Cart, CartProduct
 from product.serializers import *
+from product.utils import get_image_url
 from user.models import User
 
 
@@ -29,7 +30,7 @@ class ProductCreateView(APIView):
             'barcode': request.POST.get('barcode'),
             'size': [{'name': size} for size in sizes],  # Prepare size data
             'colors': [{'name': color} for color in colors],  # Prepare color data
-            'images': [{'url': image} for image in images]  # Prepare image data
+            'images': [{'url': get_image_url(image)} for image in images]  # Prepare image data
         }
 
         serializer = ProductSerializer(data=product_data)

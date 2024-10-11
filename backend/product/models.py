@@ -18,7 +18,7 @@ class Color(models.Model):
 
 
 class Image(models.Model):
-    url = models.ImageField(upload_to='images/product', null=True, default=None)
+    url = models.CharField(null=True, default=None)
 
     def __str__(self):
         return self.url
