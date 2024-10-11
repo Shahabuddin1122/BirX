@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Size, Color, Image, OrderProduct, Order
+from .models import *
 
 
 class SizeSerializer(serializers.ModelSerializer):
@@ -63,12 +63,14 @@ class OrderProductSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     products = OrderProductSerializer(many=True, write_only=True)  # Write products during creation
-    products_details = OrderProductSerializer(source='orderproduct_set', many=True, read_only=True)  # Read product details for the response
+    products_details = OrderProductSerializer(source='orderproduct_set', many=True,
+                                              read_only=True)  # Read product details for the response
     total_price = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
 
     class Meta:
         model = Order
-        fields = ['id', 'user', 'status', 'delivery_date', 'delivery_fee', 'total_price', 'products', 'products_details']
+        fields = ['id', 'user', 'status', 'delivery_date', 'delivery_fee', 'total_price', 'products',
+                  'products_details']
 
     def create(self, validated_data):
         products_data = validated_data.pop('products')  # Extract products data from request
@@ -85,3 +87,17 @@ class OrderSerializer(serializers.ModelSerializer):
         # After adding products, calculate the total price
         order.calculate_total_price()
         return order
+
+
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = '__all__'
+
+
+class CartProductSerializer(serializers.ModelSerializer):
+    product = ProductSerializer(read_only=True)
+
+    class Meta:
+        model = CartProduct
+        fields = '__all__'
