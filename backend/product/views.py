@@ -1,12 +1,14 @@
 from django.core.paginator import Paginator
+from django.db import transaction
 from django.shortcuts import render, get_object_or_404
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from product.models import Product
-from product.serializers import ProductSerializer
+from product.models import Product, OrderProduct
+from product.serializers import ProductSerializer, OrderSerializer
+from user.models import User
 
 
 # Create your views here.
@@ -38,7 +40,8 @@ class ProductCreateView(APIView):
 
 
 class ProductListView(APIView):
-    def get(self, request, page_number):
+    def get(self, request):
+        page_number = request.GET.get('page_number', 1)
         products = Product.objects.all()
         productPerPage = Paginator(products, 2)
         serializer = ProductSerializer(productPerPage.page(page_number).object_list, many=True)
@@ -50,3 +53,39 @@ class ProductDetailView(APIView):
         product = get_object_or_404(Product, id=product_id)
         serializer = ProductSerializer(product)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class OrderPlaceView(APIView):
+    @transaction.atomic
+    def post(self, request):
+        try:
+            data = request.data
+            user, created = User.objects.get_or_create(number=data['number'])
+            user.name = data['name']
+            user.address = data['address']
+            user.save()
+
+            # Extract product and order details
+            products_data = data.get('products', [])
+            order_data = {
+                'user': user.id,
+                'status': data['status'],
+                'delivery_date': data['delivery_date'],
+                'delivery_fee': data['delivery_fee'],  # assuming 'delivery_taka' is equivalent to 'delivery_fee'
+                'products': products_data  # Include products in order_data
+            }
+
+            # Serialize the order data
+            order_serializer = OrderSerializer(data=order_data)
+
+            if order_serializer.is_valid():
+                order = order_serializer.save()
+
+                # Calculate the total price after creating the products
+                order.calculate_total_price()
+
+                return Response(OrderSerializer(order).data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
